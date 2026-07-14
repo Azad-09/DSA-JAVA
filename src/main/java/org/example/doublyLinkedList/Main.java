@@ -1,0 +1,49 @@
+package org.example.doublyLinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        DoublyLinkedList myDLL = new DoublyLinkedList(10);
+//        myDLL.getHead();
+//        myDLL.getTail();
+//        myDLL.getLength();
+//        myDLL.append(12);
+//        myDLL.append(14);
+//        myDLL.append(16);
+//        myDLL.printList();
+//        myDLL.getLength();
+//        DoublyLinkedList.Node removedNode =   myDLL.removeLast();
+//        System.out.println("Removed Node: "  + removedNode.value);
+//        myDLL.getLength();
+//        myDLL.printList();
+//        System.out.println("*************");
+//        System.out.println(myDLL.removeLast().value);
+//        System.out.println(myDLL.removeLast().value);
+//        System.out.println(myDLL.removeLast().value);
+//        System.out.println(myDLL.removeLast());
+        myDLL.prepend(8);
+        myDLL.append(12);
+        myDLL.append(14);
+        myDLL.append(16);
+        myDLL.append(18);
+        myDLL.getHead();
+        myDLL.getLength();
+        myDLL.printList();
+//        System.out.println("*************");
+//        System.out.println(myDLL.removeFirst().value);
+//        System.out.println(myDLL.removeFirst().value);
+//        System.out.println(myDLL.removeFirst().value);
+//        System.out.println(myDLL.removeFirst());
+        myDLL.getLength();
+        DoublyLinkedList.Node node = myDLL.getNode(2);
+        System.out.println(node.value);
+        boolean isSet = myDLL.setNode(5, 19);
+        System.out.println(isSet);
+        myDLL.printList();
+        boolean isInserted = myDLL.insert(6, 15);
+        System.out.println("Is new node inserted: " + isInserted);
+        myDLL.printList();
+        DoublyLinkedList.Node removedNode = myDLL.remove(4);
+        System.out.println("Removed Node: " + removedNode.value);
+        myDLL.printList();
+    }
+}
