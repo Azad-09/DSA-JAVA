@@ -22,6 +22,9 @@ public class DoublyLinkedList {
         length = 1;
     }
 
+    public DoublyLinkedList() {
+    }
+
     public void append(int value) {
         Node newNode = new Node(value);
 
@@ -153,6 +156,69 @@ public class DoublyLinkedList {
         temp.prev = null;
         length--;
         return temp;
+    }
+
+    public boolean isPalindrome(){
+        if (length == 0 || length == 1) return true;
+
+        Node temp = head;
+        Node tempRev = tail;
+
+        for(int i = 0 ; i < length / 2; i++){
+            temp = temp.next;
+            tempRev = tempRev.prev;
+
+            if (temp.value != tempRev.value){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void reverse(){
+        Node current = head;
+        Node temp = null;
+
+        while(current != null){
+            current.prev = current.next;
+            current.next = temp;
+            temp = current;
+            current = current.prev;
+        }
+
+        Node swap = head;
+        head = tail;
+        tail = swap;
+    }
+
+    /**
+     * TODO: Need to update this method for edge cases
+     * @param x
+     */
+    public void partitionList(int x){
+        Node dummy1 = new Node(0);
+        Node dummy2 = new Node(0);
+        Node temp1 = dummy1;
+        Node temp2 = dummy2;
+        Node current = head;
+
+        while(current != null){
+            if (current.value < x){
+                temp1.next = current;
+                current.prev = temp1;
+                temp1 = temp1.next;
+            }else {
+                temp2.next = current;
+                current.prev = temp2;
+                temp2 = temp2.next;
+            }
+            current = current.next;
+        }
+
+        temp1.next = dummy2.next;
+        dummy2.next.prev = temp1;
+        temp2.next = null;
     }
 
     public void printList() {
