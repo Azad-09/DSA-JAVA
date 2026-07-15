@@ -192,10 +192,6 @@ public class DoublyLinkedList {
         tail = swap;
     }
 
-    /**
-     * TODO: Need to update this method for edge cases
-     * @param x
-     */
     public void partitionList(int x){
         Node dummy1 = new Node(0);
         Node dummy2 = new Node(0);
@@ -216,9 +212,51 @@ public class DoublyLinkedList {
             current = current.next;
         }
 
-        temp1.next = dummy2.next;
-        dummy2.next.prev = temp1;
-        temp2.next = null;
+        if (dummy2.next == null){
+            temp1.next = null;
+        }else{
+            temp1.next = dummy2.next;
+            dummy2.next.prev = temp1;
+            temp2.next = null;
+        }
+
+        head = dummy1.next;
+        head.prev = null;
+    }
+
+    public void reverseBetween(int start, int end){
+        if (head == null || start == end) return;
+
+        Node dummy = new Node(0);
+        dummy.next = head;
+        head.prev = dummy;
+
+        Node prev = dummy;
+
+        for (int i = 0 ; i < start; i++){
+            prev = prev.next;
+        }
+
+        Node current = prev.next;
+
+        for (int i = start; i < end; i++){
+            Node temp = current.next;
+            current.next = temp.next;
+
+            if (temp.next != null){
+                temp.next.prev = current;
+            }
+
+            temp.next = prev.next;
+            prev.next.prev = temp;
+
+            prev.next = temp;
+            temp.prev = prev;
+        }
+
+        head = dummy.next;
+        head.prev = null;
+
     }
 
     public void printList() {

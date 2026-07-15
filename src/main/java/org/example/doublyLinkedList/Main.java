@@ -46,17 +46,24 @@ public class Main {
 //        System.out.println("Removed Node: " + removedNode.value);
 //        myDLL.printList();
 //        myDLL.append(7);
-        myDLL.append(2);
+//        myDLL.append(2);
 //        myDLL.append(6);
 //        myDLL.append(5);
-        myDLL.append(3);
+//        myDLL.append(3);
 //        myDLL.append(4);
-        myDLL.printList();
+//        myDLL.printList();
 //        boolean isPalindrome = myDLL.isPalindrome();
 //        System.out.println("Is the doubly linked list is palindrome: " + isPalindrome);
 //        myDLL.reverse();
 //        myDLL.printList();
-        myDLL.partitionList(5);
+        myDLL.append(2);
+        myDLL.append(3);
+        myDLL.append(4);
+        myDLL.append(5);
+//        myDLL.partitionList(5);
+//
+        myDLL.printList();
+        myDLL.reverseBetween(1, 3);
         System.out.println("********");
         myDLL.printList();
     }
