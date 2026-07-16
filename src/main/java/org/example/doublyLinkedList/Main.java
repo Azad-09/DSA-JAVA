@@ -59,12 +59,15 @@ public class Main {
         myDLL.append(2);
         myDLL.append(3);
         myDLL.append(4);
-        myDLL.append(5);
+//        myDLL.append(5);
 //        myDLL.partitionList(5);
 //
+//        myDLL.printList();
+//        myDLL.reverseBetween(1, 3);
         myDLL.printList();
-        myDLL.reverseBetween(1, 3);
         System.out.println("********");
+        myDLL.swapPairs();
         myDLL.printList();
+
     }
 }

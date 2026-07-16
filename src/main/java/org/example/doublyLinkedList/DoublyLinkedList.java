@@ -259,6 +259,39 @@ public class DoublyLinkedList {
 
     }
 
+    public void swapPairs(){
+        if (head == null) return;
+
+        Node dummy = new Node(0);
+        dummy.next = head;
+        head.prev = dummy;
+
+        Node prev = dummy;
+
+        while (prev.next != null && prev.next.next != null){
+            Node first = prev.next;
+            Node second = prev.next.next;
+
+
+            first.next = second.next;
+            if (second.next != null){
+                second.next.prev = first;
+            }
+
+            second.next = prev.next;
+            prev.next.prev = second;
+
+            prev.next = second;
+            second.prev = prev;
+
+            prev = prev.next.next;
+        }
+
+        head = dummy.next;
+        head.prev = null;
+
+    }
+
     public void printList() {
         Node temp = head;
         while (temp != null) {
